@@ -1,101 +1,66 @@
-*{margin: 0}
+* {
+    margin: 0
+}
 
-button {
+.main {
     background: none;
-    border: 0;
+    border: red solid 2px;
     box-sizing: border-box;
-    margin: 1em;
-    padding: 1em 2em;
-    color: #f45e61;
-    font-size: inherit;
-    font-weight: 700;
     position: relative;
-    }
-p {display: block}
+    height: 350px;
+    width: 650px;
+    z-index: 3;
+}
 
-button::before,
-button::after {
-    box-sizing: border-box;
-    content: '';
+.inner {
     position: absolute;
     width: 100%;
     height: 100%;
-}
-
-p::before,
-p::after {
-    box-sizing: border-box;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.center:hover {
-    color: #6477b9;
-}
-
-.center::before {
-    top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
-    transform-origin: top;
-    border-top: 5px solid #647754;
-    border-bottom: 5px solid #647754;
-    transform: scale3d(0, 1, 1);
+    right: 0;
+    margin: 0 auto;
 }
 
-.top::after {
+.inner::before,
+.inner::after {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.inner::before {
     top: 0;
     left: 0;
     height: 50%;
     width: 100%;
     transform-origin: top;
+    border-top: 5px solid #647754;
+    border-left: 5px solid #647754;
+    border-right: 5px solid #647754;
+    transform: scale3d(1, 0, 1);
+}
+
+.inner::after {
+    bottom: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    transform-origin: bottom;
+    border-bottom: 5px solid #6477b9;
     border-left: 5px solid #6477b9;
     border-right: 5px solid #6477b9;
     transform: scale3d(1, 0, 1);
 }
 
-
-.bottom::after {
-    bottom: 0;
-    right: 0;
-    height: 50%;
-    width: 100%;
-    transform-origin: bottom;
-    border-left: 5px solid #643532;
-    border-right: 5px solid #643532;
-    transform: scale3d(1, 0, 1);
-}
-
-
-.center:hover::before {
+.inner:hover::before, .inner:hover::after {
     transform: scale3d(1, 1, 1);
     transition: transform 1s;
 }
 
-.top:hover::after,
-.bottom:hover::after {
+.top:hover::before,
+.bottom:hover::before {
     transform: scale3d(1, 1, 1);
     transition: 1s transform 0.8s;
-}
-
-html {
-    background: #fefefe;
-}
-
-body {
-    background: #fefefe;
-    color: #4b507a;
-    font: 300 24px/1.5 Lato, sans-serif;
-    margin: 1em auto;
-    max-width: 36em;
-    padding: 1em 1em 2em;
-    text-align: center;
-}
-
-h1 {
-    font-weight: 300;
-    font-size: 2.5em;
 }
